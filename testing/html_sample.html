@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <style>
+            .card1 {
+                display: flex;
+                flex-direction: column;
+                width: 450px;
+                padding: 10px;
+                border-width: 3px;
+                border-style: dashed;
+                border-color: cadetblue;
+            }
+            .card1 table {
+                border-spacing: unset;
+            }
+            .card1 table thead th {
+                border-top: 1px solid black;
+                background: antiquewhite;
+            }
+            .card1 table thead th,
+            .card1 table tbody td {
+                border-right: 1px solid black;
+                border-bottom: 1px solid black;
+                padding: 8px;
+            }
+            .frist {
+                border-left:  1px solid black;
+            }
+            .card1 fieldset {
+                border: 0px;
+                border-top: 3px dashed cadetblue;
+                margin-left: -10;
+                margin-right: -10;
+                display: flex;
+                flex-direction: column;
+            }
+            .card1 .form-item {
+                font-weight: 600;
+                font-size: 16px;
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+            }
+            .card1 input {
+                border: 1px solid;
+                border-color: burlywood;
+                border-width: 2px;
+                padding: 5px;
+                font-size: 15px;
+                color: darkmagenta;
+                border-radius: .5em;
+                margin-bottom: 10px;
+                width: 80%;
+            }
+            .card1 legend {
+                color: gray;
+                font-weight: 600;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <div class="card-box">
+            <div class="card1">
+                <table>
+                <thead>
+                    <tr>
+                        <th class='frist'>姓名</th>
+                        <th>身高</th>
+                        <th>体重</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class='frist'>小王</td>
+                    <td>165CM</td>
+                    <td>130KG</td>
+                </tr>
+                <tr>
+                    <td class='frist'>小李</td>
+                    <td colspan="2">160CM</td>
+                </tr>
+                <tr>
+                    <td rowspan="2" class='frist'>小张</td>
+                    <td rowspan="2">170CM</td>
+                    <td>155KG</td>
+                </tr>
+                <tr>
+                    <td>160KG</td>
+                </tr>
+                </tbody>
+                </table>
+                <fieldset>
+                <legend>健康信息</legend>
+                <div class="form-item">身高：<input type="text" /></div>
+                <div class="form-item">体重：<input type="text" /></div>
+                </fieldset>
+            </div>
+            <div class="card2">
+
+            </div>
+            </div>
+        </div>
+    </body>
+</html>
