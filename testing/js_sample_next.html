@@ -5,9 +5,15 @@
         </style>
     </head>
     <body>
+        <script>
+            const back = () => {
+                window.location.replace('./js_sample.html')
+                // window.history.back()
+            }
+        </script>
         <div class="login-next-container">
             登录成功
-            <button onclick="window.location.back()">
+            <button onclick="back()">
                 返回
             </button>
         </div>

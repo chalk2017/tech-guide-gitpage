@@ -48,13 +48,23 @@
                 background: antiquewhite;
                 transition: background 1s linear;
             }
-            .message {
+            .message,.message-hide {
+                border: 0px;
                 display: flex;
                 position:absolute;
                 padding: 10px;
-                background: rgba(255,0,0,0.5);
+                background: white;
                 top: 0px;
-                transition: background 1s linear;
+                color: white;
+                border-radius: .5em;
+            }
+            .message-hide {
+                background: white;
+                transition: background .3s linear;
+            }
+            .message {
+                background: rgba(255,0,0,0.5);
+                transition: background .5s linear;
             }
         </style>
     </head>
@@ -71,16 +81,24 @@
                             return item.name === inputUser.value && item.password === inputPw.value
                         })
                         if(userRes.length > 0){
-                            window.location.replace("https://chalk2017.github.io/tech-guide-gitpage/testing/js_sample_next.html")
+                            window.history.pushState(userRes[0],'next page',"./js_sample_next.html")
+                            // window.location.replace("./js_sample_next.html")
+                        }else{
+                            const dom = document.getElementsByClassName("login-container")[0];
+                            const msgNode = document.createElement('div');
+                            msgNode.innerText = "登录失败，用户名或密码不正确！";
+                            msgNode.setAttribute("class", "message-hide");
+                            dom.appendChild(msgNode);
+                            setTimeout(()=>{
+                                msgNode.setAttribute("class", "message");
+                                setTimeout(()=>{
+                                    msgNode.setAttribute("class", "message-hide");
+                                    setTimeout(()=>{
+                                        dom.removeChild(msgNode);
+                                    },500);
+                                },3000);
+                            },10)
                         }
-                        const dom = document.getElementsByClassName("login-container")[0];
-                        const mesNode = document.createElement('div');
-                        mesNode.setAttribute("innerHtml", "登录失败，用户名或密码不正确！");
-                        mesNode.setAttribute("class", "message");
-                        dom.appendChild(msgNode);
-                        setTimeout(()=>{
-                            dom.removeChild(msgNode);
-                        },3000)
                     })
                 })
             }
