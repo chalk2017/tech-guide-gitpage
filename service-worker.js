@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/tech-guide-gitpage/precache-manifest.51ddddf4396d40c445393bab2cfb9fd6.js"
+  "/tech-guide-gitpage/precache-manifest.ded90885d5a658b9ca3c87ff38620a5c.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "Chalk"});
