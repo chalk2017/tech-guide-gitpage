@@ -1,21 +1,30 @@
 <html>
     <head>
         <style>
-
+            .login-next-container {
+                display: flex;
+                margin: 0 auto;
+                width: fit-content;
+                flex-direction: column;
+            }
         </style>
     </head>
     <body>
         <script>
             const back = () => {
+                window.history.back()
                 window.location.replace('./js_sample.html')
-                // window.history.back()
             }
         </script>
         <div class="login-next-container">
-            登录成功
-            <button onclick="back()">
+            <div>登录成功:<span></span></div>
+            <button onclick="back()" style="margin-top:10px">
                 返回
             </button>
         </div>
+        <script>
+            const user = document.querySelector('.login-next-container div span')
+            user.innerText = window.history.state.name;
+        </script>
     </body>
 </html>

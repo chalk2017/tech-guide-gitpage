@@ -82,7 +82,7 @@
                         })
                         if(userRes.length > 0){
                             window.history.pushState(userRes[0],'next page',"./js_sample_next.html")
-                            // window.location.replace("./js_sample_next.html")
+                            window.location.replace("./js_sample_next.html")
                         }else{
                             const dom = document.getElementsByClassName("login-container")[0];
                             const msgNode = document.createElement('div');
@@ -109,7 +109,6 @@
             <button onclick="loggin.call(this)">登录</button>
         </div>
         <script>
-
         </script>
     </body>
 </html>
