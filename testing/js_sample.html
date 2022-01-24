@@ -1,25 +1,94 @@
 <html>
     <head>
         <style>
-            .box-container div {
-                position: absolute;
-                width: 30px;
-                height: 30px;
-                border: 1px solid black;
-                background: red;
+            .login-container {
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+                align-items: center;
+                margin: 0 auto;
+                margin-top: 60px;
+                border: 2px solid rgba(0,0,0,0.5);
+                padding: 45px;
+            }
+            input:active, input:focus, input:focus-visible {
+                border-color: blue;
+                outline-color: blue;
+                outline-width: 1px;
+            }
+            input:hover {
+                border-color: blue;
+                transition: border 1s linear;
+            }
+            input {
+                width: 100%;
+                margin-bottom: 20px;
+                padding: 10px;
+                font-size: 15px;
+                border-radius: .5em;
+                border: 2px solid rgba(0,0,0,0.3);
+            }
+            input[type="text"] {
+
+            }
+            input[type="password"] {
+
+            }
+            button {
+                width: 150px;
+                align-self: flex-end;
+                font-size: 15px;
+                border-radius: .3em;
+                padding: 8px;
+                background: white;
+                cursor: pointer;
+                /* background: linear-gradient(to right, white , blue); */
+            }
+            button:hover {
+                background: antiquewhite;
+                transition: background 1s linear;
+            }
+            .message {
+                display: flex;
+                position:absolute;
+                padding: 10px;
+                background: rgba(255,0,0,0.5);
+                top: 0px;
+                transition: background 1s linear;
             }
         </style>
     </head>
     <body>
-        <div class="box-container">
-            <div id="b1"></div>
-            <div id="b2"></div>
-            <div id="b3"></div>
-            <div id="b4"></div>
-            <div id="b5"></div>
-            <div id="b6"></div>
-            <div id="b7"></div>
-            <div id="b8"></div>
+        <script>
+            const loggin = function () {
+                // console.log(event)
+                let inputUser = document.querySelector('input[type="text"]');
+                let inputPw = document.querySelector('input[type="password"]');
+                fetch('https://chalk2017.github.io/tech-guide-gitpage/testing/js_sample.json', {method:'GET'}).then(res=>{
+                    res.text().then(dataStr=>{
+                        let data = JSON.parse(dataStr);
+                        let userRes = data.users.filter((item)=>{
+                            return item.name === inputUser.value && item.password === inputPw.value
+                        })
+                        if(userRes.length > 0){
+                            window.location.replace("https://chalk2017.github.io/tech-guide-gitpage/testing/js_sample_next.html")
+                        }
+                        const dom = document.getElementsByClassName("login-container")[0];
+                        const mesNode = document.createElement('div');
+                        mesNode.setAttribute("innerHtml", "登录失败，用户名或密码不正确！");
+                        mesNode.setAttribute("class", "message");
+                        dom.appendChild(msgNode);
+                        setTimeout(()=>{
+                            dom.removeChild(msgNode);
+                        },3000)
+                    })
+                })
+            }
+        </script>
+        <div class="login-container">
+            <input type="text" placeholder="请输入用户名" />
+            <input type="password" placeholder="请输入用密码" />
+            <button onclick="loggin.call(this)">登录</button>
         </div>
         <script>
 

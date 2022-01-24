@@ -1,4 +1,15 @@
 {
-    'a': 1,
-    'b': 2
+    "users": [{
+            "name": "chalk",
+            "password": "123456"
+        },
+        {
+            "name": "even",
+            "password": "234567"
+        },
+        {
+            "name": "strong",
+            "password": "345678"
+        }
+    ]
 }
